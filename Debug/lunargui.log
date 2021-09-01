@@ -1,0 +1,5 @@
+﻿  main.c
+C:\Users\Light\source\repos\lunargui\main.c(12,12): warning C4101: 'guievent': unreferenced local variable
+C:\Users\Light\source\repos\lunargui\main.c(69,16): warning C4026: function declared with formal parameter list
+C:\Users\Light\source\repos\lunargui\main.c(52): warning C4716: 'Lunar_Update': must return a value
+  lunargui.vcxproj -> C:\Users\Light\source\repos\lunargui\Debug\lunargui.exe

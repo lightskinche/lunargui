@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="helper.c" />
     <ClCompile Include="lua.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>

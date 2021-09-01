@@ -21,6 +21,9 @@
     <ClCompile Include="lua.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="helper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainheader.h">

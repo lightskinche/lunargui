@@ -1,5 +1,7 @@
-﻿  main.c
-C:\Users\Light\source\repos\lunargui\main.c(12,12): warning C4101: 'guievent': unreferenced local variable
-C:\Users\Light\source\repos\lunargui\main.c(69,16): warning C4026: function declared with formal parameter list
-C:\Users\Light\source\repos\lunargui\main.c(52): warning C4716: 'Lunar_Update': must return a value
+﻿  lua.c
+C:\Users\Light\source\repos\lunargui\lua.c(8,44): warning C4090: '=': different 'const' qualifiers
+C:\Users\Light\source\repos\lunargui\lua.c(10,37): warning C4244: '=': conversion from 'lua_Number' to 'int', possible loss of data
+C:\Users\Light\source\repos\lunargui\lua.c(12,37): warning C4244: '=': conversion from 'lua_Number' to 'int', possible loss of data
+C:\Users\Light\source\repos\lunargui\lua.c(14,38): warning C4244: '=': conversion from 'lua_Number' to 'int', possible loss of data
+C:\Users\Light\source\repos\lunargui\lua.c(16,38): warning C4244: '=': conversion from 'lua_Number' to 'int', possible loss of data
   lunargui.vcxproj -> C:\Users\Light\source\repos\lunargui\Debug\lunargui.exe

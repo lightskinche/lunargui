@@ -15,23 +15,10 @@ int LUAPROC_Register_Button(lua_State* L) {
 	lua_rawgeti(L, 1, 5);//pushes ysize
 	tmp->ysize = luaL_checknumber(L, -1);
 	//now we need to get values from the other two tables about the button's apperance
-	lua_rawgeti(L, 2, 1);
-	tmp->press_r = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 2, 2);
-	tmp->press_g = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 2, 3);
-	tmp->press_b = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 2, 4);
-	tmp->press_a = luaL_checknumber(L, -1);
-	//wow this is really long, should probably make a helper macro to make this easier
-	lua_rawgeti(L, 3, 1);
-	tmp->unpress_r = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 3, 2);
-	tmp->unpress_g = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 3, 3);
-	tmp->unpress_b = luaL_checknumber(L, -1);
-	lua_rawgeti(L, 3, 4);
-	tmp->unpress_a = luaL_checknumber(L, -1);
+	int* p_rgba = HELPER_Load_IntTable(L, 2, 4, 0);
+	int* up_rgba = HELPER_Load_IntTable(L, 3, 4, 0);
+	tmp->press_r = p_rgba[0], tmp->press_g = p_rgba[1], tmp->press_b = p_rgba[2], tmp->press_a = p_rgba[3];
+	tmp->unpress_r = up_rgba[0], tmp->unpress_g = up_rgba[1], tmp->unpress_b = up_rgba[2], tmp->unpress_a = up_rgba[3];
 
 	tmp->hovered_start = INT32_MAX; //very important for handling buttons later
 	if (lua_type(L, 5) == LUA_TSTRING) {

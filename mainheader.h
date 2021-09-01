@@ -41,13 +41,15 @@ struct reg_button {
 	reg_button* next;
 };
 //helpful macros
-#define REGISTER_FUNC(name,func) {reg_function* tmp_function = calloc(1, sizeof(*tmp_function)); *tmp_function = (reg_function){ func,name }; HASH_ADD_KEYPTR(hh, registered_functions, tmp_function->id, strlen(tmp_function->id), tmp_function);}
+#define REGISTER_FUNC(name,func) {reg_function* tmp_function = calloc(1, sizeof(*tmp_function)); *tmp_function = (reg_function){ func,name }; HASH_ADD_KEYPTR(hh, registered_functions, tmp_function->id, strlen(tmp_function->id), tmp_function);} 
 //important globals
 extern reg_function* registered_functions;
 extern reg_button* registered_buttons;
 //general prototypes
 extern void Lunar_Init(char* lua_filename, char* resources_loc);
 extern int Lunar_Update(SDL_Renderer* renderer);
+//helper functions
+extern int* HELPER_Load_IntTable(lua_State* L, int idx, int length, int offset);
 //prototypes for some LUAPROC's
 extern int LUAPROC_Register_Button(lua_State* L);
 extern int LUAPROC_Load_Image(lua_State* L);

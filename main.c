@@ -23,18 +23,19 @@ int Lunar_Update(SDL_Renderer* renderer) {
 	//go through and handle all buttons
 	for (reg_button* tmp = registered_buttons; tmp != NULL; tmp = tmp->next) {
 		SDL_Rect result;
-		if (pressed_last == 1 && pressed < 0 && (down_time >= tmp->hovered_start))
-			if (tmp->button_up)
-				tmp->button_up();
 		tmp->hovered = SDL_IntersectRect(&(SDL_Rect) { mousex, mousey, 25, 25 }, & (SDL_Rect){ tmp->xpos, tmp->ypos, tmp->xsize, tmp->ysize }, &result);
 		if (tmp->hovered == 1 && tmp->last_hovered == 0)
 			tmp->hovered_start = clock();
 		else if (tmp->hovered == 0 && tmp->last_hovered == 1)
 			tmp->hovered_start = INT32_MAX;
+
 		if (down_time >= tmp->hovered_start) {
 			if (pressed > 0 && pressed_last < 0)
 				if (tmp->button_down)
 					tmp->button_down();
+			if (pressed_last == 1 && pressed < 0)
+				if (tmp->button_up)
+					tmp->button_up();
 		    SDL_SetRenderDrawColor(renderer, tmp->press_r, tmp->press_g, tmp->press_b, tmp->press_a);
 			SDL_RenderFillRect(renderer, &(SDL_Rect){tmp->xpos, tmp->ypos, tmp->xsize, tmp->ysize});
 		}
